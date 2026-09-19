@@ -1,14 +1,24 @@
 # Deep Learning with Recurrent Neural Networks (RNNs) & Long Short-Term Memory (LSTMs)
 
-<div align="center"> 
-  <img src="assets/banner.png" width="750" alt="banner" style="border-radius: 10px;"> 
-</div>
+<div align="center">
 
-[![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/)
-[![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-orange.svg)](https://tensorflow.org/)
-[![PyTorch](https://img.shields.io/badge/PyTorch-2.x-red.svg)](https://pytorch.org/)
-[![NumPy](https://img.shields.io/badge/NumPy-From--Scratch-013243.svg)](https://numpy.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+<img src="assets/banner.png" width="750" alt="Deep Learning with RNNs and LSTMs Banner" style="border-radius: 10px;">
+
+<br/>
+<br/>
+
+[![Python](https://img.shields.io/badge/Python-3.8+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)](https://tensorflow.org/)
+[![PyTorch](https://img.shields.io/badge/PyTorch-2.x-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)](https://pytorch.org/)
+[![NumPy](https://img.shields.io/badge/NumPy-Scratch-013243?style=for-the-badge&logo=numpy&logoColor=white)](https://numpy.org/)
+[![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-F37626?style=for-the-badge&logo=jupyter&logoColor=white)](https://jupyter.org/)
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge&logo=opensourceinitiative&logoColor=white)](LICENSE)
+[![GitHub Stars](https://img.shields.io/github/stars/mohd-faizy/20P_Deep-Learning-RNNs-and-LSTMs?style=for-the-badge&logo=github&color=eab308)](https://github.com/mohd-faizy/20P_Deep-Learning-RNNs-and-LSTMs/stargazers)
+[![GitHub Forks](https://img.shields.io/github/forks/mohd-faizy/20P_Deep-Learning-RNNs-and-LSTMs?style=for-the-badge&logo=github&color=3b82f6)](https://github.com/mohd-faizy/20P_Deep-Learning-RNNs-and-LSTMs/network/members)
+[![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen.svg?style=for-the-badge)](https://github.com/mohd-faizy/20P_Deep-Learning-RNNs-and-LSTMs/pulls)
+
+</div>
 
 A rigorous, end-to-end repository exploring **Sequential Deep Learning**, from mathematical foundations and pure **NumPy / PyTorch / TensorFlow** scratch implementations to practical real-world applications in **Character-level Arithmetic Modeling** and **Sequence-to-Sequence (Seq2Seq) Machine Translation (English to French)**.
 
