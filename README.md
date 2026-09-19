@@ -130,23 +130,9 @@ By separating **long-term memory** ($C_t$) from **short-term working memory** ($
 
 An LSTM cell executes four distinct computational stages at each time step $t$, taking the concatenated vector $[h_{t-1}, x_t]$:
 
-```
-                  +-------------------------------------------------------------+
-                  |                      LSTM CELL DYNAMICS                     |
-                  +-------------------------------------------------------------+
-Previous States   |  h_{t-1} (Short-term memory)   &   C_{t-1} (Long-term memory)
-Inputs            |  x_t     (Current token vector)
-                  +-------------------------------------------------------------+
-                  |  1. FORGET GATE:        f_t = σ(W_f · [h_{t-1}, x_t] + b_f)  |
-                  |  2. INPUT GATE:         i_t = σ(W_i · [h_{t-1}, x_t] + b_i)  |
-                  |  3. CANDIDATE STATE:    C~_t = tanh(W_c · [h_{t-1}, x_t] + b_c)
-                  |  4. CELL STATE UPDATE:  C_t = (f_t ⊙ C_{t-1}) + (i_t ⊙ C~_t)|
-                  |  5. OUTPUT GATE:        o_t = σ(W_o · [h_{t-1}, x_t] + b_o)  |
-                  |  6. HIDDEN STATE:       h_t = o_t ⊙ tanh(C_t)                |
-                  +-------------------------------------------------------------+
-Outputs           |  h_t (to output prediction & t+1)  &  C_t (to t+1)
-                  +-------------------------------------------------------------+
-```
+<div align="center"> 
+  <img src="assets/lstm_dynamics.png" width="750" alt="lstm_dynamics" style="border-radius: 10px;"> 
+</div>
 
 #### 1. Forget Gate ($f_t$) — Selective Erasure
 Determines what fraction of the existing cell memory $C_{t-1}$ to discard:
