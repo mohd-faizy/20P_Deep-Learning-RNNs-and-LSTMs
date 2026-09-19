@@ -32,8 +32,7 @@ A rigorous, end-to-end repository exploring **Sequential Deep Learning**, from m
    - [Gradient Highway: RNN vs. LSTM Comparison](#gradient-highway-rnn-vs-lstm-comparison)
 4. [Sequence-to-Sequence (Seq2Seq) Machine Translation](#sequence-to-sequence-seq2seq-machine-translation)
    - [Encoder-Decoder Architecture](#encoder-decoder-architecture)
-   - [Context Thought Vector & RepeatVector Mechanics](#context-thought-vector--repeatvector-mechanics)
-5. [Repository Structure & Notebook Walkthrough](#repository-structure--notebook-walkthrough)
+5. [Notebook Breakdown](#notebook-breakdown)
 6. [Comparative Architecture Matrix](#comparative-architecture-matrix)
 7. [Installation & Quickstart](#installation--quickstart)
 8. [License & Citation](#license--citation)
@@ -280,8 +279,8 @@ $$\hat{y}_t = \text{softmax}\left(W_{vocab} h_t^{dec} + b_{vocab}\right)$$
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/your-username/29_RNNs_and_LSTMs.git
-cd 29_RNNs_and_LSTMs
+git clone https://github.com/mohd-faizy/20P_Deep-Learning-RNNs-and-LSTMs.git
+cd 20P_Deep-Learning-RNNs-and-LSTMs
 ```
 
 ### 2. Create and Activate a Virtual Environment
@@ -297,18 +296,12 @@ python -m venv venv
 
 ### 3. Install Dependencies
 ```bash
-pip install -r requirements.txt
+pip install tensorflow torch numpy pandas matplotlib jupyter
 ```
 
 ### 4. Launch Jupyter Lab / Notebooks
 ```bash
 jupyter lab
-```
-
-### 5. Regenerate Diagrams (Optional)
-To regenerate or customize the 300 DPI architectural diagrams:
-```bash
-python generate_diagrams.py
 ```
 
 ---
