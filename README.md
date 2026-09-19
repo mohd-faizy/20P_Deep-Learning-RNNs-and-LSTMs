@@ -101,8 +101,8 @@ $$\frac{\partial h_j}{\partial h_{j-1}} = W_{hh}^T \cdot \text{diag}\left(1 - h_
 
 Because $\tanh'(z) = 1 - \tanh^2(z) \in (0, 1]$:
 - If the largest eigenvalue (spectral radius) of $W_{hh}$ satisfies $\rho(W_{hh}) < 1$, the continuous matrix multiplication contracts the gradient exponentially:
-  
-  $$\lim_{T-k \to \infty} \left\|\prod_{j=k+1}^T \frac{\partial h_j}{\partial h_{j-1}}\right\| \to 0$$
+
+$$\lim_{T-k \to \infty} \left\|\prod_{j=k+1}^T \frac{\partial h_j}{\partial h_{j-1}}\right\| \to 0$$
 
 - As a result, gradients vanishingly decay after $10-15$ steps, preventing Vanilla RNNs from retaining long-term context (e.g., matching plural subjects to verbs separated by long clauses).
 - Conversely, if $\rho(W_{hh}) > 1$, gradients explode exponentially ($\to \infty$), causing numerical instability (`NaN` losses), which must be combated with gradient clipping.
@@ -159,12 +159,12 @@ $$f_t = \sigma\left(W_{xf} x_t + W_{hf} h_{t-1} + b_f\right)$$
 #### 2. Input Gate ($i_t$) & Candidate Cell State ($\tilde{C}_t$) — Selective Storage
 Controls what new information to incorporate into the cell state:
 - **Input Gate**: Decides *which coordinates* of the state to update:
-  
-  $$i_t = \sigma\left(W_{xi} x_t + W_{hi} h_{t-1} + b_i\right)$$
+
+$$i_t = \sigma\left(W_{xi} x_t + W_{hi} h_{t-1} + b_i\right)$$
 
 - **Candidate State**: Generates the *new prospective values* bounded in $[-1, 1]$:
-  
-  $$\tilde{C}_t = \tanh\left(W_{xc} x_t + W_{hc} h_{t-1} + b_c\right)$$
+
+$$\tilde{C}_t = \tanh\left(W_{xc} x_t + W_{hc} h_{t-1} + b_c\right)$$
 
 #### 3. Cell State Update ($C_t$) — The Additive Conveyor Belt
 The long-term memory is updated by element-wise linear addition ($\oplus$):
@@ -191,12 +191,12 @@ The fundamental advantage of LSTM over Vanilla RNN is highlighted when comparing
 ![Why LSTM Solves Vanishing Gradients](assets/04_rnn_vs_lstm_gradient_highway.png)
 
 - **Vanilla RNN**:
-  
-  $$\frac{\partial h_T}{\partial h_1} = \prod_{k=2}^T W_{hh}^T \text{diag}(1 - h_k^2) \implies \text{Exponential contraction}$$
+
+$$\frac{\partial h_T}{\partial h_1} = \prod_{k=2}^T W_{hh}^T \text{diag}(1 - h_k^2) \implies \text{Exponential contraction}$$
 
 - **LSTM Cell State Highway**:
-  
-  $$\frac{\partial C_T}{\partial C_1} = \prod_{k=2}^T \left( f_k + \dots \right)$$
+
+$$\frac{\partial C_T}{\partial C_1} = \prod_{k=2}^T \left( f_k + \dots \right)$$
 
 If the forget gate $f_k \approx 1$ (which modern initializations encourage by setting $b_f = 1.0$), the gradient flows backwards through time completely **unattenuated**, permitting gradient propagation over hundreds of sequence steps.
 
@@ -224,8 +224,8 @@ A standard RNN/LSTM maps an input sequence to an output sequence of identical le
 
 4. **TimeDistributed Dense Projection**:
    - A `TimeDistributed(Dense(french_vocab_size, activation='softmax'))` layer computes probability distributions over the entire French vocabulary at each output position:
-     
-     $$\hat{y}_t = \text{softmax}\left(W_{vocab} h_t^{dec} + b_{vocab}\right)$$
+
+$$\hat{y}_t = \text{softmax}\left(W_{vocab} h_t^{dec} + b_{vocab}\right)$$
 
 ---
 
@@ -324,20 +324,6 @@ To regenerate or customize the 300 DPI architectural diagrams:
 ```bash
 python generate_diagrams.py
 ```
-
----
-
-## Technical Dependencies
-
-The repository utilizes the following core scientific computing and deep learning packages:
-
-- **Python**: $\ge 3.8$
-- **TensorFlow**: $\ge 2.12.0$ (Keras Seq2Seq & custom layers)
-- **PyTorch**: $\ge 2.0.0$ (Custom `nn.Module` RNNs and LSTMs)
-- **NumPy**: $\ge 1.23.0$ (Vectorized matrix operations)
-- **Pandas**: $\ge 1.5.0$ (Corpus manipulation & statistics)
-- **Matplotlib & Pillow**: Publication-quality diagram rendering
-- **JupyterLab / Notebook**: Interactive exploratory environments
 
 ---
 
